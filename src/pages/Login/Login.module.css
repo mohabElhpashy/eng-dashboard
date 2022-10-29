@@ -1,0 +1,144 @@
+.MAIN{
+    display: grid;
+    height: 100%;
+    place-items: center;
+    /* background-color: #16a085; */
+    /* position: absolute;
+    left: 50%;
+    right: 50%; */
+    height: 100vh;
+
+    /* margin: auto; */
+}
+.Wrapper{
+        width: 380px;
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid black;
+}
+
+.Wrapper .title{
+
+    line-height: 80px;
+    background: #16a085;
+    padding-left: 20px;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+
+}
+.form{
+
+    padding: 30px 20px 25px 20px;
+}
+.Row{
+
+    height: 45px;
+    /* background: #ff0000; */
+    margin-bottom: 15px;
+    position: relative;
+}
+.Row input{
+
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+    padding-left: 60px;
+    border-radius: 5px;
+    /* border: 14px solid lightgray; */
+}
+.icon{
+    position: absolute;
+    width: 35px;
+    height: 100%;
+    background:#16a085;
+    border: 1px solid #16a085;
+    border-radius: 5px 0 0 5px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10px;
+}
+.Row_button input{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 0px;
+    background: #16a085;
+    border: 1px solid #16a085;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    line-height: 35px;
+
+}
+.Row_Error{
+
+    color: red;
+    font-weight: 500;
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+/* .MAIN{
+    place-items: center;
+    background-color: #1abc9c;
+        height: 100vh;
+        clear: both;
+        text-align: center;
+        place-items: center;
+
+} */
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+    .MAIN{
+        place-items: center;
+        background-color: #1abc9c;
+            height: 100vh;
+            clear: both;
+            text-align: center;
+            place-items: center;
+
+    
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    /* your mobile css, change this as you please */
+    .MAIN
+    
+    {
+        background-color: #1abc9c;
+        height: 100vh;
+        clear: both;
+        text-align: center;
+        place-items: center;
+
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    /* your desktop css */
+    .MAIN
+    
+    {
+        background-color: #1abc9c;
+        height: 100vh;
+        clear: both;
+        text-align: center;
+        place-items: center;
+
+    }
+}
