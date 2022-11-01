@@ -2,6 +2,7 @@ import Sidebar from "../Components/Sidebar/Sidebar";
 import Eng_profile from '../pages/Taskeen/Taskeen'
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
  import Header from '../Components/Header'
+ import Pieces from '../pages/Pieces/Pieces'
 
 const Layout=()=>{
 
@@ -15,6 +16,7 @@ return (
 <Routes>
 
  <Route path="/eng_profile" element={<Eng_profile/>}/>
+ <Route path="/pieces" element={<Pieces/>}/>
 
 {/* Areas
 // <Route path="/All_Areas" element={<All_Areaas/>}/>

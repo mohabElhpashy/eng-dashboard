@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import Service from "../../Services";
 import { useNavigate } from "react-router-dom";
 import { Button, Drawer, Radio, Space, Card, Select, message } from "antd";
-
+ 
 import Style from "../Taskeen/Taskeen.module.css";
 const { Option } = Select;
 const Taskeen = () => {
   const navigate = useNavigate();
-
+ 
   const [currentList, setCurrentList] = useState([]);
   const [currentList_eng, setCurrentList_eng] = useState([]);
   const [planting_basin, setplanting_basin] = useState([]);
@@ -71,7 +71,8 @@ const Taskeen = () => {
       <div className={Style.content}>
         {currentList.map((area, index) => (
           <div className={Style.box} key={index}>
-            <h1>{`${area.area.area_name}`} </h1>
+            <h1                 onClick={e=>navigate('/dashoard_user/pieces')}
+>{`${area.area.area_name}`} </h1>
             {/* <Button
               type="primary"
               onClick={() => showDrawer(area.area.farms)}
