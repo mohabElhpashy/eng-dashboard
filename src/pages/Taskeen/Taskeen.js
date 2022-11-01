@@ -72,13 +72,13 @@ const Taskeen = () => {
         {currentList.map((area, index) => (
           <div className={Style.box} key={index}>
             <h1>{`${area.area.area_name}`} </h1>
-            <Button
+            {/* <Button
               type="primary"
               onClick={() => showDrawer(area.area.farms)}
               className={Style.My_button}
             >
               Add Visit
-            </Button>
+            </Button> */}
           </div>
         ))}
         <Drawer

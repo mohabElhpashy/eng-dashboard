@@ -1,6 +1,7 @@
 import Sidebar from "../Components/Sidebar/Sidebar";
 import Eng_profile from '../pages/Taskeen/Taskeen'
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+ import Header from '../Components/Header'
 
 const Layout=()=>{
 
@@ -10,6 +11,7 @@ return (
   >
 
 {/* <Sidebar/> */}
+<Header/>
 <Routes>
 
  <Route path="/eng_profile" element={<Eng_profile/>}/>
