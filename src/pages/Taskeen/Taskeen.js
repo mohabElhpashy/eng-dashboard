@@ -4,64 +4,35 @@ import { useNavigate } from "react-router-dom";
 import { Button, Drawer, Radio, Space, Card, Select, message } from "antd";
  
 import Style from "../Taskeen/Taskeen.module.css";
+import service from "../../Services";
 const { Option } = Select;
 const Taskeen = () => {
   const navigate = useNavigate();
  
   const [currentList, setCurrentList] = useState([]);
-  const [currentList_eng, setCurrentList_eng] = useState([]);
-  const [planting_basin, setplanting_basin] = useState([]);
-  const [crops, setcrops] = useState([]);
+  const [slot,setslot]=useState()
+   
 
-  const [postObject, setPostObject] = useState({
-    name: "",
-    engineer_id: "",
-  });
-  const [open, setOpen] = useState(false);
-  const [placement, setPlacement] = useState("bottom");
-
-  const showDrawer = (data) => {
-    setCurrentList_eng(data);
-    setOpen(true);
-  };
-
-  const onChange = (e) => {
-    setPlacement(e.target.value);
-  };
-
-  const onClose = () => {
-    //   setCurrentList (null)
-    //   setCurrentList_eng (null)
-    //  setplanting_basin (null)
-    setOpen(false);
-  };
-
-  const Add = (area_id) => {
-    let assigns = [{ engineer_id: postObject.engineer_id, area_id: area_id }];
-    Service.post("assign/engineer", { assigns: assigns }).then((res) => {
-      message.success({ content: "Done!", duration: 2 });
-      setPostObject({});
-      // navigate('/dashoard/Taskken')
-      window.location.assign("/dashoard/Taskken");
-    });
-  };
-
-  const GetData = (data) => {
-    console.log(data);
-  };
+  
   const Fetchdata = () => {
-    Service.get("profile").then((res) => setCurrentList(res.assign_areas));
+    Service.get("profile").then((res) => {
+      console.log("res",res)
+      setCurrentList(res.assign_areas)});
   };
 
-  const GetPlanting = (AllDAta, id) => {
-    // console.log("all data",AllDAta)
-    setplanting_basin(AllDAta.planting_basin);
-  };
+  const addPiece=(id)=>
+  {
+    alert(id)
+    Service.post("/add/peace",{name:slot,area_id:id})
+    .then(res=>{
+      message.success({ content: "Piece Added",  duration: 2 });
 
-  const getCrops = (data) => {
-    // console.log("data",data)
-    setcrops(data.crops);
-  };
+      // navigate('/dashoard_user/eng_profile')
+      window.location.assign("/dashoard_user/eng_profile");
+
+    })
+  }
+  
   useEffect(() => {
     Fetchdata();
   }, []);
@@ -70,73 +41,28 @@ const Taskeen = () => {
       {/* <h1>Profile</h1> */}
       <div className={Style.content}>
         {currentList.map((area, index) => (
-          <div className={Style.box} key={index}>
-            <h1                 onClick={e=>navigate('/dashoard_user/pieces')}
->{`${area.area.area_name}`} </h1>
-            {/* <Button
+          <div className={`${Style.box} sm:h-96`} key={index}>
+            <h1               
+              onClick={e=>navigate('/dashoard_user/pieces')}>{`${area.area.area_name}`} </h1>
+              <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-6 gap-2">
+
+          
+              <input  onChange={(e)=>setslot(e.target.value)} placeholder="Slot name" className="w-full rounded-md 
+              
+              placeholder:italic placeholder:text-slate-400 block bg-white   border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm
+              "/>
+              <Button
               type="primary"
-              onClick={() => showDrawer(area.area.farms)}
-              className={Style.My_button}
-            >
-              Add Visit
-            </Button> */}
+              className="rounded-md"
+              onClick={()=>addPiece(area.area.id)}
+             >
+              create slot
+            </Button>
+              </div>
+           
           </div>
         ))}
-        <Drawer
-          // title="Drawer with extra actions"
-          placement={placement}
-          width={`60%`}
-          height={`80%`}
-          onClose={onClose}
-          open={open}
-          // extra={
-          //   <Space>
-          //     <Button onClick={onClose}>Cancel</Button>
-          //     <Button type="primary" onClick={onClose}>
-          //       OK
-          //     </Button>
-          //   </Space>
-          // }
-        >
-          <div className={Style.Farms}>
-            <div className={Style.Farm_main_div}>
-              {currentList_eng.map((ele, index) => (
-                <div
-                  className={Style.Farms_div}
-                  onClick={() => GetPlanting(ele, ele.id)}
-                  key={index}
-                >
-                  {ele.name}
-                </div>
-              ))}
-            </div>
-
-            <div className={Style.Farm_planting}>
-              {planting_basin.map((ele, index) => (
-                <div
-                  key={index}
-                  className={Style.Farms_div_plnt}
-                  onClick={() => getCrops(ele)}
-                >
-                  {ele.name}
-                </div>
-              ))}
-            </div>
-
-            {/* <hr/> */}
-            <div className={Style.Farm_planting}>
-              {crops.map((ele, index) => (
-                <div
-                  key={index}
-                  className={Style.Farms_div_crops}
-                  // onClick={()=>getCrops(ele)}
-                >
-                  {ele.name}
-                </div>
-              ))}
-            </div>
-          </div>
-        </Drawer>
+         
       </div>
     </>
   );

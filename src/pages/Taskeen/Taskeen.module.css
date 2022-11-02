@@ -9,7 +9,7 @@
 }
 .box{
     width: 20%;
-    height: 190px;
+    height: 208px;
     background-color: #2b6777;
     margin: 20px;
     border: 1px solid #52ab98;
@@ -20,14 +20,14 @@
 
 
 }
-.My_button{
+/* .My_button{
     position: absolute;
     bottom: 0;
     left: 0;
     border-radius: 7px;
     font-weight: 700;
 
-}
+} */
 .box h1{
     font-weight: 1000;
     color: #000;
