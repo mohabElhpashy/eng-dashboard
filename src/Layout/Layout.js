@@ -1,24 +1,21 @@
 import Sidebar from "../Components/Sidebar/Sidebar";
-import Eng_profile from '../pages/Taskeen/Taskeen'
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
- import Header from '../Components/Header'
- import Pieces from '../pages/Pieces/Pieces'
+import Eng_profile from "../pages/Taskeen/Taskeen";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "../Components/Header";
+import Pieces from "../pages/Pieces/Pieces";
 
-const Layout=()=>{
+const Layout = () => {
+  return (
+    <div
+    // style={{display:"flex",justifyContent:"space-around",width:"100%"}}
+    >
+      {/* <Sidebar/> */}
+      <Header />
+      <Routes>
+        <Route path="/eng_profile" element={<Eng_profile />} />
+        <Route path="/pieces/:id" element={<Pieces />} />
 
-return (
-  <div 
-  // style={{display:"flex",justifyContent:"space-around",width:"100%"}}
-  >
-
-{/* <Sidebar/> */}
-<Header/>
-<Routes>
-
- <Route path="/eng_profile" element={<Eng_profile/>}/>
- <Route path="/pieces" element={<Pieces/>}/>
-
-{/* Areas
+        {/* Areas
 // <Route path="/All_Areas" element={<All_Areaas/>}/>
 // <Route path="/Create_Areas" element={<Create_Areas/>}/>
 // <Route path="/Singlearea/:id" element={<Singlearea/>}/>
@@ -54,15 +51,9 @@ return (
 //  <Route path="/EditSingleeng/:id" element={<EditUser/>}/>
 
 //  <Route path="/Taskken" element={<Taskken/>}/> */}
-
-
-
-
-</Routes>
-  </div>
-           
-          
- )
-}
+      </Routes>
+    </div>
+  );
+};
 
 export default Layout;
